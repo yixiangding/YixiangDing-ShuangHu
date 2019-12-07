@@ -1,0 +1,28 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/clustering/BatchClusteringEngine.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.clustering.BatchClusteringEngine"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="&quot;~/Documents/source/hadoop_svn/tags/release-1.x.x/all&quot; &quot;data/hadoop_svn&quot; &quot;build/classes&quot; &quot;src&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>
+||||||| merged common ancestors
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/clustering/BatchClusteringEngine.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.clustering.BatchClusteringEngine"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="&quot;~/Documents/source/hadoop_svn/tags/release-1.x.x/&quot; &quot;data/hadoop_svn&quot; &quot;build/classes&quot; &quot;src&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>
+>>>>>>> 30bfee1d09390583b1ee37c3b65bef6dd5843db5

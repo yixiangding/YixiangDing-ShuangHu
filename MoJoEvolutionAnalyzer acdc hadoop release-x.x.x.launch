@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/clustering/MoJoEvolutionAnalyzer.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${workspace_loc:/arcade/data/hadoop_svn/acdc}/mojoevol_acdc_hadoop.log"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.clustering.MoJoEvolutionAnalyzer"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="~/workspace/arcade/data/hadoop_svn/acdc/release-x.x.x/clusters"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

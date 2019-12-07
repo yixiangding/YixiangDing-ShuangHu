@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.cdt.launch.launchGroup">
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.0.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.0.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.0.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.0.name" value="ArchSmellDetector bash acdc"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.1.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.1.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.1.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.1.name" value="ArchSmellDetector bash arc"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.2.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.2.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.2.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.2.name" value="ArchSmellDetector bash bunch nahc"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.3.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.3.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.3.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.3.name" value="ArchSmellDetector bash bunch sahc"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.4.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.4.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.4.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.4.name" value="ArchSmellDetector bash ground truth"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.5.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.5.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.5.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.5.name" value="ArchSmellDetector bash limbo"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.6.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.6.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.6.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.6.name" value="ArchSmellDetector bash wca ue"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.7.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.7.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.7.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.7.name" value="ArchSmellDetector bash wca uenm"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.8.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.8.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.8.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.8.name" value="ArchSmellDetector bash zem"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.9.action" value="WAIT_FOR_TERMINATION"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.9.enabled" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.9.mode" value="run"/>
+<stringAttribute key="org.eclipse.cdt.launch.launchGroup.9.name" value="ArchSmellDetector bash zuni"/>
+</launchConfiguration>

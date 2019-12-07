@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/facts/driver/ReverseAnalysis.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${workspace_loc:/MyExtractors/logs}/eclipse_console.log"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.facts.driver.ReverseAnalysis"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-depsFile &quot;/home/joshua/workspace/MyExtractors/data/archstudio4/archstudio4_deps.rsf&quot; -authFile &quot;/home/joshua/Documents/Software Engineering Research/projects/recovery/Expert Decompositions/archstudio4/archstudio4_clean_ground_truth_recovery.rsf&quot; -topicsFile &quot;/home/joshua/Documents/Software Engineering Research/subject_systems/archstudio4/archstudio4-100-doc-topics.txt&quot; -langType &quot;java&quot; --pkgFile /home/joshua/workspace/PySourceSeparator/data/archstudio4_auth_pkgs.rsf --outFile /home/joshua/ser/projects/recovery/reverse_analysis/archstudio4_full_ra.csv"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

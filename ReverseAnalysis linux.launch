@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/facts/driver/ReverseAnalysis.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${workspace_loc:/MyExtractors/logs}/eclipse_console.log"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.facts.driver.ReverseAnalysis"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-depsFile &quot;/home/joshua/Documents/Software Engineering Research/projects/recovery/Expert Decompositions/linux/linuxRel.rsf&quot; -authFile &quot;/home/joshua/Documents/Software Engineering Research/projects/recovery/Expert Decompositions/linux/linux.flat.clean.auth.rsf&quot; -topicsFile &quot;/home/joshua/Documents/Software Engineering Research/subject_systems/linux/linux-250-doc-topics-clean.txt&quot; -langType &quot;c&quot; --pkgFile /home/joshua/workspace/PySourceSeparator/data/linux_auth_pkgs.rsf --outFile /home/joshua/ser/projects/recovery/reverse_analysis/linux_compact_full_ra.csv"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

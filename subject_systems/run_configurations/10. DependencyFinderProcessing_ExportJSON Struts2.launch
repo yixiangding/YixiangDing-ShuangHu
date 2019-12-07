@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/antipattern/detection/interfacebased/DependencyFinderProcessing_ExportJSON.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.antipattern.detection.interfacebased.DependencyFinderProcessing_ExportJSON"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="subject_systems\\Struts2\\&#13;&#10;acdc\\cluster&#13;&#10;depfinder&#13;&#10;clone&#13;&#10;struts2_cleaned.csv&#13;&#10;org.apache.struts2&#13;&#10;struts2_acdc_interface_smell.csv"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

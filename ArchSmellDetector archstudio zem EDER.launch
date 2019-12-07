@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/antipattern/detection/ArchSmellDetector.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.antipattern.detection.ArchSmellDetector"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-projfile cfg/archstudio4-zem-eder.cfg -smellClassesFile /Users/ederfigueroa/Library/Application Support/ubuntuone/shares/recovery (Joshua Garcia, 8b4ef995-54c3-4db3-a574-97cbcdebc4b8)/smell_detection/archstudio/techniques/archstudio_zem_smells2classes.csv -detectedSmellsFile /Users/ederfigueroa/Desktop/research/archstudio/archstudio_zem_smells.ser"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

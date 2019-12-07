@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/util/convert/ClusterGraphToDotConverter.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.util.convert.ClusterGraphToDotConverter"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/home/joshua/Dropbox/evolution/Android_Analysis/ACDC_Android_System/android.system_rsf/1.6_r1.rsf /home/joshua/Dropbox/evolution/Android_Analysis/ACDC_Android_System/android.system_clustered/1.6_r1_acdc_clustered.rsf  /home/joshua/Dropbox/evolution/Android_Analysis/ACDC_Android_System/android.system_dot/1.6_r1_acdc_clustered.dot"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

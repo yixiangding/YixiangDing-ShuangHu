@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/gexf/ConvertRsfToGexf.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.gexf.ConvertRsfToGexf"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-authfile /home/joshua/workspace/MyExtractors/data/oodt-catalog-0.2/oodt-catalog-0.2_wca_preselected_10_clusters.rsf -depfile /home/joshua/workspace/MyExtractors/data/oodt-catalog-0.2/oodt-catalog-0.2_class_graph_facts.rsf -gexffile  /home/joshua/workspace/MyExtractors/data/oodt-catalog-0.2/oodt-catalog-0.2_wca_preselected_10_clusters.gexf"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

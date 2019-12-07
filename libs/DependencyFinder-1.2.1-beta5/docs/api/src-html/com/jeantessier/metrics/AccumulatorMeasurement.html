@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Copyright (c) 2001-2009, Jean Tessier<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  All rights reserved.<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  <a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  Redistribution and use in source and binary forms, with or without<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  modification, are permitted provided that the following conditions<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  are met:<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  <a name="line.8"></a>
+<span class="sourceLineNo">009</span> *      * Redistributions of source code must retain the above copyright<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *        notice, this list of conditions and the following disclaimer.<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  <a name="line.11"></a>
+<span class="sourceLineNo">012</span> *      * Redistributions in binary form must reproduce the above copyright<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *        notice, this list of conditions and the following disclaimer in the<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *        documentation and/or other materials provided with the distribution.<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  <a name="line.15"></a>
+<span class="sourceLineNo">016</span> *      * Neither the name of Jean Tessier nor the names of his contributors<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *        may be used to endorse or promote products derived from this software<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *        without specific prior written permission.<a name="line.18"></a>
+<span class="sourceLineNo">019</span> *  <a name="line.19"></a>
+<span class="sourceLineNo">020</span> *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS<a name="line.20"></a>
+<span class="sourceLineNo">021</span> *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT<a name="line.21"></a>
+<span class="sourceLineNo">022</span> *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR<a name="line.22"></a>
+<span class="sourceLineNo">023</span> *  A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR<a name="line.23"></a>
+<span class="sourceLineNo">024</span> *  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,<a name="line.24"></a>
+<span class="sourceLineNo">025</span> *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,<a name="line.25"></a>
+<span class="sourceLineNo">026</span> *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR<a name="line.26"></a>
+<span class="sourceLineNo">027</span> *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF<a name="line.27"></a>
+<span class="sourceLineNo">028</span> *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING<a name="line.28"></a>
+<span class="sourceLineNo">029</span> *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS<a name="line.29"></a>
+<span class="sourceLineNo">030</span> *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<a name="line.30"></a>
+<span class="sourceLineNo">031</span> */<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>package com.jeantessier.metrics;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>import java.io.*;<a name="line.35"></a>
+<span class="sourceLineNo">036</span>import java.util.*;<a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>import org.apache.log4j.*;<a name="line.38"></a>
+<span class="sourceLineNo">039</span><a name="line.39"></a>
+<span class="sourceLineNo">040</span>/**<a name="line.40"></a>
+<span class="sourceLineNo">041</span> *  &lt;p&gt;Base class that accumulates entries, filtering with regular<a name="line.41"></a>
+<span class="sourceLineNo">042</span> *  expressions.  If no regular expressions are given, matches<a name="line.42"></a>
+<span class="sourceLineNo">043</span> *  everything for the given measurement, which must implement<a name="line.43"></a>
+<span class="sourceLineNo">044</span> *  the &lt;code&gt;CollectionMeasurement&lt;/code&gt; interface.  Regular<a name="line.44"></a>
+<span class="sourceLineNo">045</span> *  expressions matching using &lt;code&gt;Perl5Util&lt;/code&gt; from<a name="line.45"></a>
+<span class="sourceLineNo">046</span> *  Jakarta-ORO.  This measurement will use<a name="line.46"></a>
+<span class="sourceLineNo">047</span> *  &lt;code&gt;Perl5Util.group(1)&lt;/code&gt; if not null, otherwise the<a name="line.47"></a>
+<span class="sourceLineNo">048</span> *  full string.&lt;/p&gt;<a name="line.48"></a>
+<span class="sourceLineNo">049</span> *<a name="line.49"></a>
+<span class="sourceLineNo">050</span> *  &lt;p&gt;This is the syntax for initializing this type of<a name="line.50"></a>
+<span class="sourceLineNo">051</span> *  measurement:&lt;/p&gt;<a name="line.51"></a>
+<span class="sourceLineNo">052</span> *  <a name="line.52"></a>
+<span class="sourceLineNo">053</span> *  &lt;pre&gt;<a name="line.53"></a>
+<span class="sourceLineNo">054</span> *  &amp;lt;init&amp;gt;<a name="line.54"></a>
+<span class="sourceLineNo">055</span> *      measurement name [perl regular expression]<a name="line.55"></a>
+<span class="sourceLineNo">056</span> *      ...<a name="line.56"></a>
+<span class="sourceLineNo">057</span> *  &amp;lt;/init&amp;gt;<a name="line.57"></a>
+<span class="sourceLineNo">058</span> *  &lt;/pre&gt;<a name="line.58"></a>
+<span class="sourceLineNo">059</span> */<a name="line.59"></a>
+<span class="sourceLineNo">060</span>public abstract class AccumulatorMeasurement extends MeasurementBase implements CollectionMeasurement {<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    private Map&lt;String, Collection&lt;String&gt;&gt; terms  = new HashMap&lt;String, Collection&lt;String&gt;&gt;();<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    private Collection&lt;String&gt; values = new TreeSet&lt;String&gt;();<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>    public AccumulatorMeasurement(MeasurementDescriptor descriptor, Metrics context, String initText) {<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        super(descriptor, context, initText);<a name="line.65"></a>
+<span class="sourceLineNo">066</span><a name="line.66"></a>
+<span class="sourceLineNo">067</span>        if (initText != null) {<a name="line.67"></a>
+<span class="sourceLineNo">068</span>            try {<a name="line.68"></a>
+<span class="sourceLineNo">069</span>                BufferedReader in   = new BufferedReader(new StringReader(initText));<a name="line.69"></a>
+<span class="sourceLineNo">070</span>                String         line;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>                <a name="line.71"></a>
+<span class="sourceLineNo">072</span>                while ((line = in.readLine()) != null) {<a name="line.72"></a>
+<span class="sourceLineNo">073</span>                    synchronized (perl()) {<a name="line.73"></a>
+<span class="sourceLineNo">074</span>                        if (perl().match("/^\\s*(\\S+)\\s*(.*)/", line)) {<a name="line.74"></a>
+<span class="sourceLineNo">075</span>                            String name = perl().group(1);<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                            String re   = perl().group(2);<a name="line.76"></a>
+<span class="sourceLineNo">077</span><a name="line.77"></a>
+<span class="sourceLineNo">078</span>                            Collection&lt;String&gt; res = terms.get(name);<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                            if (res == null) {<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                                res = new ArrayList&lt;String&gt;();<a name="line.80"></a>
+<span class="sourceLineNo">081</span>                                terms.put(name, res);<a name="line.81"></a>
+<span class="sourceLineNo">082</span>                            }<a name="line.82"></a>
+<span class="sourceLineNo">083</span><a name="line.83"></a>
+<span class="sourceLineNo">084</span>                            if (re != null &amp;&amp; re.length() &gt; 0) {<a name="line.84"></a>
+<span class="sourceLineNo">085</span>                                res.add(re);<a name="line.85"></a>
+<span class="sourceLineNo">086</span>                            }<a name="line.86"></a>
+<span class="sourceLineNo">087</span>                        }<a name="line.87"></a>
+<span class="sourceLineNo">088</span>                    }<a name="line.88"></a>
+<span class="sourceLineNo">089</span>                }<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                <a name="line.90"></a>
+<span class="sourceLineNo">091</span>                in.close();<a name="line.91"></a>
+<span class="sourceLineNo">092</span>            } catch (Exception ex) {<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                Logger.getLogger(getClass()).debug("Cannot initialize with \"" + initText + "\"", ex);<a name="line.93"></a>
+<span class="sourceLineNo">094</span>                terms.clear();<a name="line.94"></a>
+<span class="sourceLineNo">095</span>            }<a name="line.95"></a>
+<span class="sourceLineNo">096</span>        }<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>        logTerms(initText);<a name="line.98"></a>
+<span class="sourceLineNo">099</span>    }<a name="line.99"></a>
+<span class="sourceLineNo">100</span><a name="line.100"></a>
+<span class="sourceLineNo">101</span>    private void logTerms(String initText) {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>        Logger.getLogger(getClass()).debug("Initialize with\n" + initText);<a name="line.102"></a>
+<span class="sourceLineNo">103</span>        Logger.getLogger(getClass()).debug("Terms:");<a name="line.103"></a>
+<span class="sourceLineNo">104</span><a name="line.104"></a>
+<span class="sourceLineNo">105</span>        for (Map.Entry&lt;String, Collection&lt;String&gt;&gt; entry : terms.entrySet()) {<a name="line.105"></a>
+<span class="sourceLineNo">106</span>            Logger.getLogger(getClass()).debug("\t" + entry.getKey());<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>            for (String s : entry.getValue()) {<a name="line.108"></a>
+<span class="sourceLineNo">109</span>                Logger.getLogger(getClass()).debug("\t\t" + s);<a name="line.109"></a>
+<span class="sourceLineNo">110</span>            }<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        }<a name="line.111"></a>
+<span class="sourceLineNo">112</span>    }<a name="line.112"></a>
+<span class="sourceLineNo">113</span><a name="line.113"></a>
+<span class="sourceLineNo">114</span>    public Number getValue() {<a name="line.114"></a>
+<span class="sourceLineNo">115</span>        return getValues().size();<a name="line.115"></a>
+<span class="sourceLineNo">116</span>    }<a name="line.116"></a>
+<span class="sourceLineNo">117</span><a name="line.117"></a>
+<span class="sourceLineNo">118</span>    public boolean isEmpty() {<a name="line.118"></a>
+<span class="sourceLineNo">119</span>        return getValues().isEmpty();<a name="line.119"></a>
+<span class="sourceLineNo">120</span>    }<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    <a name="line.121"></a>
+<span class="sourceLineNo">122</span>    protected double compute() {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        return getValues().size();<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    }<a name="line.124"></a>
+<span class="sourceLineNo">125</span><a name="line.125"></a>
+<span class="sourceLineNo">126</span>    public Collection&lt;String&gt; getValues() {<a name="line.126"></a>
+<span class="sourceLineNo">127</span>        if (!isCached()) {<a name="line.127"></a>
+<span class="sourceLineNo">128</span>            values.clear();<a name="line.128"></a>
+<span class="sourceLineNo">129</span>            <a name="line.129"></a>
+<span class="sourceLineNo">130</span>            populateValues();<a name="line.130"></a>
+<span class="sourceLineNo">131</span><a name="line.131"></a>
+<span class="sourceLineNo">132</span>            setCached(true);<a name="line.132"></a>
+<span class="sourceLineNo">133</span>        }<a name="line.133"></a>
+<span class="sourceLineNo">134</span>        <a name="line.134"></a>
+<span class="sourceLineNo">135</span>        return Collections.unmodifiableCollection(values);<a name="line.135"></a>
+<span class="sourceLineNo">136</span>    }<a name="line.136"></a>
+<span class="sourceLineNo">137</span><a name="line.137"></a>
+<span class="sourceLineNo">138</span>    protected abstract void populateValues();<a name="line.138"></a>
+<span class="sourceLineNo">139</span><a name="line.139"></a>
+<span class="sourceLineNo">140</span>    protected void filterMetrics(Metrics metrics) {<a name="line.140"></a>
+<span class="sourceLineNo">141</span>        for (Map.Entry&lt;String, Collection&lt;String&gt;&gt; entry : terms.entrySet()) {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>            String name = entry.getKey();<a name="line.142"></a>
+<span class="sourceLineNo">143</span>            Collection&lt;String&gt; res = entry.getValue();<a name="line.143"></a>
+<span class="sourceLineNo">144</span><a name="line.144"></a>
+<span class="sourceLineNo">145</span>            Measurement measurement = metrics.getMeasurement(name);<a name="line.145"></a>
+<span class="sourceLineNo">146</span>            if (measurement instanceof CollectionMeasurement) {<a name="line.146"></a>
+<span class="sourceLineNo">147</span>                filterMeasurement((CollectionMeasurement) measurement, res);<a name="line.147"></a>
+<span class="sourceLineNo">148</span>            }<a name="line.148"></a>
+<span class="sourceLineNo">149</span>        }<a name="line.149"></a>
+<span class="sourceLineNo">150</span>    }<a name="line.150"></a>
+<span class="sourceLineNo">151</span>    <a name="line.151"></a>
+<span class="sourceLineNo">152</span>    private void filterMeasurement(CollectionMeasurement measurement, Collection&lt;String&gt; res) {<a name="line.152"></a>
+<span class="sourceLineNo">153</span>        if (res.isEmpty()) {<a name="line.153"></a>
+<span class="sourceLineNo">154</span>            values.addAll(measurement.getValues());<a name="line.154"></a>
+<span class="sourceLineNo">155</span>        } else {<a name="line.155"></a>
+<span class="sourceLineNo">156</span>            for (String member : measurement.getValues()) {<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                filterElement(member, res);<a name="line.157"></a>
+<span class="sourceLineNo">158</span>            }<a name="line.158"></a>
+<span class="sourceLineNo">159</span>        }<a name="line.159"></a>
+<span class="sourceLineNo">160</span>    }<a name="line.160"></a>
+<span class="sourceLineNo">161</span>    <a name="line.161"></a>
+<span class="sourceLineNo">162</span>    private void filterElement(String element, Collection&lt;String&gt; res) {<a name="line.162"></a>
+<span class="sourceLineNo">163</span>        boolean found = false;<a name="line.163"></a>
+<span class="sourceLineNo">164</span>        Iterator&lt;String&gt; i = res.iterator();<a name="line.164"></a>
+<span class="sourceLineNo">165</span>        while (!found &amp;&amp; i.hasNext()) {<a name="line.165"></a>
+<span class="sourceLineNo">166</span>            found = evaluateRE(i.next(), element);<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        }<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    }<a name="line.168"></a>
+<span class="sourceLineNo">169</span>    <a name="line.169"></a>
+<span class="sourceLineNo">170</span>    private boolean evaluateRE(String re, String element) {<a name="line.170"></a>
+<span class="sourceLineNo">171</span>        boolean result = false;<a name="line.171"></a>
+<span class="sourceLineNo">172</span><a name="line.172"></a>
+<span class="sourceLineNo">173</span>        synchronized (perl()) {<a name="line.173"></a>
+<span class="sourceLineNo">174</span>            if (perl().match(re, element)) {<a name="line.174"></a>
+<span class="sourceLineNo">175</span>                result = true;<a name="line.175"></a>
+<span class="sourceLineNo">176</span>                if (perl().group(1) != null) {<a name="line.176"></a>
+<span class="sourceLineNo">177</span>                    values.add(perl().group(1));<a name="line.177"></a>
+<span class="sourceLineNo">178</span>                } else {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>                    values.add(element);<a name="line.179"></a>
+<span class="sourceLineNo">180</span>                }<a name="line.180"></a>
+<span class="sourceLineNo">181</span>            }<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        }<a name="line.182"></a>
+<span class="sourceLineNo">183</span><a name="line.183"></a>
+<span class="sourceLineNo">184</span>        return result;<a name="line.184"></a>
+<span class="sourceLineNo">185</span>    }<a name="line.185"></a>
+<span class="sourceLineNo">186</span>}<a name="line.186"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

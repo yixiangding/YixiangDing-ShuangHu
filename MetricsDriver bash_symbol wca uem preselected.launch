@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/MetricsDriver.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.MetricsDriver"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-projfile cfg/bash_symbol_wca_uem.cfg -computedFilePrefix /home/joshua/workspace/arcade/data/bash_symbol/bash_symbol_ -alg wca -simMeasure uem -stoppingCriterion preselected -authClusteringFile &quot;/home/joshua/Documents/Software Engineering Research/projects/recovery/dependencies/dependency_project/deps_and_gt/Bash/gt/bash_symbol_gt.rsf&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>

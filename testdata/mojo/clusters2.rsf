@@ -1,0 +1,14 @@
+contain cluster1 1
+contain cluster1 2
+<<<<<<< HEAD
+contain cluster1 3
+contain cluster1 4
+contain cluster2 5
+=======
+contain cluster1 5
+contain cluster1 6
+contain cluster2 3
+contain cluster2 4
+contain cluster2 7
+contain cluster2 8
+>>>>>>> fc18972645d8b0fd7e3c1fe07827876add83177b

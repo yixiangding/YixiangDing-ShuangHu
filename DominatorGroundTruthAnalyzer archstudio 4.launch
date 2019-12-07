@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/arcade/src/edu/usc/softarch/arcade/facts/driver/DominatorGroundTruthAnalyzer.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.usc.softarch.arcade.facts.driver.DominatorGroundTruthAnalyzer"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/home/joshua/workspace/MyExtractors/data/archstudio4/archstudio4_deps.rsf &quot;/home/joshua/recovery/Expert Decompositions/archstudio4/archstudio4_clean_ground_truth_recovery.rsf&quot; &quot;/home/joshua/recovery/reverse_analysis/archstudio4_acdc_outfile.csv&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arcade"/>
+</launchConfiguration>
