@@ -74,6 +74,25 @@ public class PipeExtractor {
 						fullClassName = packageName + "." + shortClassName;
 					}
 
+//					if (file.getName().equals("WsWebSocketContainer.java")) {
+//						System.out.println(line);
+//					}
+
+					Pattern pt = Pattern.compile("^\\s*//.*");
+					if (pt.matcher(line).find()) {
+						continue;
+					}
+
+					Pattern pt2 = Pattern.compile("^\\*");
+					if (pt2.matcher(line).find()) {
+						continue;
+					}
+
+//					Pattern q = Pattern.compile("^import .*\\.clientendpoint.*;$", Pattern.CASE_INSENSITIVE);
+//					if (q.matcher(line).matches()) {
+//						vulnerabilityAnalyser.include(file);
+//					}
+
 					vulnerabilityAnalyser.analyzeFileByLine(file, line);
 				}
 				reader.close();
